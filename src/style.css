@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* On peut garder certains styles personnalisés si nécessaire */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#app {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* On peut supprimer le reste des styles par défaut car ils seront gérés par Tailwind */
+
+/* Styles pour MapLibre */
+.maplibregl-popup {
+  @apply text-gray-900;
+}
+
+.maplibregl-popup-content {
+  @apply rounded-lg shadow-lg border border-gray-200 p-0;
+}
+
+.maplibregl-popup-close-button {
+  @apply text-gray-500 hover:text-gray-700;
+}
+
+/* Styles pour les marqueurs */
+.maplibregl-marker {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.maplibregl-marker:hover {
+  z-index: 1;
+}
+
+/* Animation pour le filtrage */
+@keyframes markerPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+
+.marker-selected {
+  animation: markerPulse 0.5s ease-out;
+}
+
+/* Styles pour les marqueurs */
+.marker-container {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+}
